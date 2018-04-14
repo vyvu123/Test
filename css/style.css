@@ -805,6 +805,10 @@ footer .footer-bottom {
   .main-content .product-sale-off {
     padding-left: 15px;
     padding-right: 15px; }
+    .main-content .product-sale-off h1:before {
+      width: auto;
+      left: -30px;
+      right: -30px; }
     .main-content .product-sale-off .load {
       margin-bottom: 20px; }
     .main-content .product-sale-off .item-content {
