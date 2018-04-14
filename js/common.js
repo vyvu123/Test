@@ -34,35 +34,25 @@ function resizeScreen() {
             $(this).addClass('selected').siblings().removeClass('selected');
         });
 
+        $(".box-product").append(loadmoreText);
+        $("div.moreBox").hide();
+        $("div.tab-pane.active div.moreBox").siblings().slice(0, 2).show();
+        $(".box-product .loadMore").click(function(){
+          $("div.moreBox").slideDown();
+          var divs = $("div.tab-pane.active div.moreBox:hidden");
+          if(divs.length <= 1)
+            $(".box-product .loadMore").hide();
+          $(divs).eq(0).show();
 
 
-
-        $("#tab1 .box-product").append(loadmoreText);
-        $("#tab1 .moreBox").siblings().slice(0, 2).show();
-        if ($("#tab1 .item:hidden").length != 0) {
-            $(".loadMore").show();
-        }
-        $("#tab1 .loadMore").on('click', function(e) {
-            e.preventDefault();
-            $(this).hide();
-            $(".moreBox:hidden").slice(0, 6).slideDown();
-            
-        });
-        
-
-        $("#tab2 .box-product").append(loadmoreText);
-        $("#tab2 .moreBox").siblings().slice(0, 2).show();
-        if ($("#tab2 .item:hidden").length != 0) {
-            $(".loadMore").show();
-        }
-        $("#tab2 .loadMore").on('click', function(e) {
-            e.preventDefault();
-            $(this).hide();
-            $(".moreBox:hidden").slice(0, 6).slideDown();
-            
         });
 
-        
+        $(".nav-tabs li").click(function(){
+          $(".box-moreBox .loadMore").show();
+           $("div.item").hide();
+           $("div.tab-pane.active div.moreBox").siblings().slice(0, 2).show();
+        });
+
 
         $(".box-product-sale").append(loadmoreText);
         $(".item-content").siblings().slice(0, 2).show();
