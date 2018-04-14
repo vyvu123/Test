@@ -766,6 +766,9 @@ footer {
                 padding-top: 10px;
                 padding-bottom: 10px;
             }
+            .collapse {
+                display: none !important;
+            }
             #navbar {
                 padding: 0;
 
@@ -831,7 +834,11 @@ footer {
         }
     }
 }
-
+@media (max-width: 1199px) and (min-width: 992px) {
+    .main-content .filter_categories .tab-content .owl-nav {
+        right: calc(50% - 470px);
+    }
+}
 @media (max-width: 992px) and (min-width: 768px) {
     .hide-tablet {
         display: none;
