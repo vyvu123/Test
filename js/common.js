@@ -1,28 +1,29 @@
 $(document).ready(function() {
     resizeScreen();  
     $('.owl-carousel').owlCarousel({
-	    nav: true,
+        nav: true,
         loop: true,
         margin: 20,
-	    responsive:{
-	        768:{
-	            items:3
-	        },
-	        1000:{
-	        	stagePadding: 150,
-	            items:4
-	        }
-	    }
-	});
+        responsive:{
+            768:{
+                items:3
+            },
+            1000:{
+                stagePadding: 150,
+                items:4
+            }
+        }
+    });
     $('#search_block_top > button').click(function() {
         $(".drop_search").slideToggle();
     });
 
 });
 
+
 function resizeScreen() {
     var win = $(this);
-    var loadmoreText = '<p class="load">' + '<a href="#" class="loadMore">' + 'load more</a></p>';
+    var loadmoreText = '<p class="load">' + '<a href="javascript:void(0)" class="loadMore">' + 'load more</a></p>';
     var buttonToggle = '<button id="buttonToggle">' + '<span class="icon-bar">' + '</span>' + '<span class="icon-bar">' + '</span>' + '<span class="icon-bar">' + '</span>' + 'Toggle navigation footer</button>';
     if (win.width() < 767) {
 
@@ -47,10 +48,12 @@ function resizeScreen() {
 
         });
 
-        $(".nav-tabs li").click(function(){
+        $(".nav-tabs li a").on("click", function(){
+            var t = $(this).attr('href');
           $(".box-moreBox .loadMore").show();
            $("div.item").hide();
-           $("div.tab-pane.active div.moreBox").siblings().slice(0, 2).show();
+           $(t+" div.moreBox").siblings().slice(0, 2).css("display", "block");
+           $(t+" .loadMore").css("display", "inline-block");
         });
 
 
